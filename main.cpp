@@ -95,11 +95,6 @@ private:
 		return nullptr;
 	}
 
-	bool check_win()
-	{
-		return true;
-	}
-
 
 public:
 
@@ -132,6 +127,7 @@ int main()
 
 	if (not word_count)
 	{
+
 		return -1;
 	}
 
