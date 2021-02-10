@@ -21,12 +21,12 @@ void List::resize()
 List::List(int size)
 {
 	payload = new char[size];
-	size = size;
+	_size = size;
 	_capacity = size;
 }
 
 // Set value at index.
-void List::set(int index, char value)
+void List::set(int index, char value) const
 {
 	if (index < 0 || index >= _size)
 	{
@@ -37,7 +37,7 @@ void List::set(int index, char value)
 }
 
 // Get value at index.
-char List::get(int index)
+char List::get(int index) const
 {
 	if (index < 0 || index >= _size)
 	{
@@ -75,21 +75,14 @@ List::List()
 	payload = new char[8];
 }
 
-bool List::operator==(List other) const
+bool List::operator==(const List& other) const
 {
 	if (_size != other.size())
-	{
 		return false;
-	}
 
 	for (auto i = 0; i < _size; i++)
-	{
 		if (payload[i] != other.get(i))
-		{
 			return false;
-		}
-
-	}
 
 	return true;
 }

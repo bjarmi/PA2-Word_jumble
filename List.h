@@ -22,15 +22,15 @@ public:
 
 	~List();
 
-	void set(int index, char value);
+	void set(int index, char value) const;
 
-	char get(int index);
+	char get(int index) const;
 
 	void append(char value);
 
 	int size() const;
 
-	bool operator == (List other) const;
+	bool operator == (const List& other) const;
 };
 
 #endif //PA2_LIST_H
