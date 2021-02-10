@@ -25,11 +25,11 @@ private:
 	// Resize the container.
 	void resize()
 	{
-		// Todo: find out how to do the pointer switching.
-		// new_container[capacity * 2];
-		// write from container to new_container.
-		// delete container.
-		// point to new_container.
+		char* new_container = new char[capacity * 2];
+		write(container, new_container);
+		delete[] container;
+		container = new_container;
+		capacity *= 2;
 	}
 
 public:
