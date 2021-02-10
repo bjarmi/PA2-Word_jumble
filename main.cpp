@@ -72,7 +72,7 @@ private:
 
 	void display_status()
 	{
-		printf("Unscrambled word:\n\t");
+		printf("Scrambled word:\n\t");
 		for (auto letter : scrambled_word)
 		{
 			std::cout << letter;
