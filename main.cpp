@@ -81,15 +81,12 @@ private:
 
 	static std::array<char, MAX_WORD_SIZE> get_guess()
 	{
-		std::string temp;
-		do
-		{
-			printf("Hit me with your best shot!\n");
-			std::cin >> temp;
-		}
-		while (temp.size() > MAX_WORD_SIZE);
+		std::array<char, MAX_WORD_SIZE> guess{};
 
-		return (const std::array<char, MAX_WORD_SIZE>&) temp;
+		printf("Hit me with your best shot!\n");
+		std::cin.read(guess.data(), MAX_WORD_SIZE);
+
+		return guess;
 	}
 
 	std::array<char, MAX_WORD_SIZE>
