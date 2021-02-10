@@ -1,12 +1,10 @@
 #include <iostream>
-#include <fstream>
-#include <algorithm>
 #include <random>
 #include <array>
-#include <cstring>
 
 const int MAX_WORD_SIZE = 45;
 
+// Write a word to some memory.
 void write(std::array<char, MAX_WORD_SIZE> word,
            std::array<char, MAX_WORD_SIZE> memory)
 {
@@ -21,13 +19,8 @@ struct WordBank
 {
 	static char wordbank[13];
 
-	static std::array<char, MAX_WORD_SIZE> fetch_word()
-	{
-		std::array<char, MAX_WORD_SIZE> word{};
-
-		std::ifstream file;
-		file.open(wordbank, std::ios::in);
-	}
+	// Fetch word from a wordbank.
+	static std::array<char, MAX_WORD_SIZE> fetch_word();
 };
 
 
@@ -38,6 +31,7 @@ private:
 	std::array<char, MAX_WORD_SIZE> unscrambled_word{};
 	std::array<char, MAX_WORD_SIZE> scrambled_word{};
 
+	// Display game status.
 	void display_status()
 	{
 		printf("Scrambled word:\n\t");
@@ -47,6 +41,7 @@ private:
 		}
 	}
 
+	// Get a word guess from user.
 	static std::array<char, MAX_WORD_SIZE> get_guess()
 	{
 		std::array<char, MAX_WORD_SIZE> guess{};
@@ -57,11 +52,9 @@ private:
 		return guess;
 	}
 
+	// Scramble a word's letters.
 	std::array<char, MAX_WORD_SIZE>
-	scramble_word(std::array<char, MAX_WORD_SIZE> word)
-	{
-		return nullptr;
-	}
+	scramble_word(std::array<char, MAX_WORD_SIZE> word);
 
 
 public:
