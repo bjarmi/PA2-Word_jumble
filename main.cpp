@@ -19,7 +19,7 @@ void write(std::array<char, MAX_WORD_SIZE> word,
 struct WordBank
 {
 	static char wordbank[13];
-	static int word_count;
+	static int& word_count;
 
 	static int count_words()
 	{
@@ -32,6 +32,7 @@ struct WordBank
 					std::istreambuf_iterator<char>(), '\n'
 			);
 		}
+		return -1;
 	}
 
 	static std::array<char, MAX_WORD_SIZE> fetch_word()
@@ -122,7 +123,14 @@ int main()
 {
 	std::array<char, 13> wordbank =
 			(const std::array<char, 13>&) "wordbank.txt";
-	WordBank::word_count = WordBank::count_words();
+	int word_count = WordBank::count_words();
+
+	if (not word_count)
+	{
+		return -1;
+	}
+
+	WordBank::word_count = word_count;
 	std::array<char, MAX_WORD_SIZE> word = WordBank::fetch_word();
 
 	Scramble scramble(word);
