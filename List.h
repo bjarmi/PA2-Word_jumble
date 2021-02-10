@@ -30,7 +30,7 @@ public:
 
 	int size() const;
 
-	bool operator == (const List& other) const;
+	bool operator==(const List& other) const;
 };
 
 #endif //PA2_LIST_H

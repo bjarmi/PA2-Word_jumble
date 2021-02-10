@@ -86,4 +86,3 @@ bool List::operator==(const List& other) const
 
 	return true;
 }
-
