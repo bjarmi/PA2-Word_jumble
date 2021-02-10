@@ -67,6 +67,10 @@ public:
 	// Append a value to the end of the List.
 	void append(char value)
 	{
+		if (size + 1 > capacity)
+		{
+			resize();
+		}
 		container[size + 1] = value;
 		size++;
 	}
