@@ -1,18 +1,9 @@
 #include <iostream>
 #include <random>
 #include <array>
+#include "List.h"
 
 const int MAX_WORD_SIZE = 45;
-
-// Write a word to some memory.
-void write(std::array<char, MAX_WORD_SIZE> word,
-           std::array<char, MAX_WORD_SIZE> memory)
-{
-	for (auto i = 0; i < word.size(); i++)
-	{
-		memory[i] = word[i];
-	}
-}
 
 
 struct WordBank
@@ -20,7 +11,7 @@ struct WordBank
 	static char wordbank[13];
 
 	// Fetch word from a wordbank.
-	static std::array<char, MAX_WORD_SIZE> fetch_word();
+	List fetch_word();
 };
 
 
@@ -68,12 +59,13 @@ public:
 
 	void start()
 	{
-		std::array<char, MAX_WORD_SIZE> guess{};
+		List guess(8);
 
 		do
 		{
 			display_status();
-			write(get_guess(), guess);
+			// Todo: Use memcpy().
+			// write(get_guess(), guess);
 		}
 		while (guess != unscrambled_word);
 	}

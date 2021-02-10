@@ -6,65 +6,55 @@
 #include <iostream>
 #include <cstring>
 
-class List
+
+// Resize the payload.
+void List::resize()
 {
+	capacity *= 2;
+	char* new_payload = new char[capacity];
+	memcpy(new_payload, payload, size);
+	delete[] payload;
+	payload = new_payload;
+}
 
-private:
-	char* payload;
-	int size = 0;
-	int capacity = 0;
+// Initialize an instance of List.
+List::List(int size)
+{
+	payload = new char[size];
+	size = size;
+	capacity = size;
+}
 
-	// Resize the payload.
-	void resize()
+// Set value at index.
+void List::set(int index, char value)
+{
+	if (index < 0 || index >= size)
 	{
-		capacity *= 2;
-		char* new_payload = new char[capacity];
-		memcpy(new_payload, payload, size);
-		delete[] payload;
-		payload = new_payload;
+		throw std::runtime_error("Index out of bounds!");
 	}
 
-public:
+	payload[index] = value;
+}
 
-	// Initialize an instance of List.
-	explicit List(int size)
+// Get value at index.
+char List::get(int index)
+{
+	if (index < 0 || index >= size)
 	{
-		payload = new char[size];
-		size = size;
-		capacity = size;
+		throw std::runtime_error("Index out of bounds!");
 	}
 
-	// Set value at index.
-	void set(int index, char value)
+	return payload[index];
+}
+
+// Append a value to the end of the List.
+void List::append(char value)
+{
+	if (size + 1 > capacity)
 	{
-		if (index < 0 || index >= size)
-		{
-			throw std::runtime_error("Index out of bounds!");
-		}
-
-		payload[index] = value;
+		resize();
 	}
+	payload[size + 1] = value;
+	size++;
+}
 
-	// Get value at index.
-	char get(int index)
-	{
-		if (index < 0 || index >= size)
-		{
-			throw std::runtime_error("Index out of bounds!");
-		}
-
-		return payload[index];
-	}
-
-	// Append a value to the end of the List.
-	void append(char value)
-	{
-		if (size + 1 > capacity)
-		{
-			resize();
-		}
-		payload[size + 1] = value;
-		size++;
-	}
-
-};
