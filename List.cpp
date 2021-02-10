@@ -45,21 +45,28 @@ public:
 	// Set value at index.
 	void set(int index, char value)
 	{
-		// Todo: Encapsulate in a try/catch clause.
+		if (index < 0 || index >= size)
+		{
+			throw std::runtime_error("Index out of bounds!");
+		}
+
 		container[index] = value;
 	}
 
 	// Get value at index.
 	char get(int index)
 	{
-		// Todo: Encapsulate in a try/catch clause.
+		if (index < 0 || index >= size)
+		{
+			throw std::runtime_error("Index out of bounds!");
+		}
+
 		return container[index];
 	}
 
 	// Append a value to the end of the List.
 	void append(char value)
 	{
-		// Todo: Encapsulate in a try/catch clause.
 		container[size + 1] = value;
 		size++;
 	}
