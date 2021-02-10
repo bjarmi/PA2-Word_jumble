@@ -93,14 +93,3 @@ int main()
 
 	return 0;
 }
-
-
-// TODO: Version B.
-
-// User can ask for a hint, word shown as dashes.
-
-// User starts with 10 points, decreased by one for every hint.
-
-// Game is eiter;
-// How many words guessed before 0 points,
-// or, how many points remaining after 7 words.
