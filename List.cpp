@@ -14,7 +14,7 @@ private:
 	int capacity = 0;
 
 	// Write a word to some memory.
-	void write(char* old, char* new_)
+	void write(const char* old, char* new_) const
 	{
 		for (auto i = 0; i < size; i++)
 		{
