@@ -4,32 +4,24 @@
 
 #include "List.h"
 #include <iostream>
+#include <cstring>
 
 class List
 {
 
 private:
-	char* container;
+	char* payload;
 	int size = 0;
 	int capacity = 0;
 
-	// Write a word to some memory.
-	void write(const char* old, char* new_) const
-	{
-		for (auto i = 0; i < size; i++)
-		{
-			new_[i] = old[i];
-		}
-	}
-
-	// Resize the container.
+	// Resize the payload.
 	void resize()
 	{
-		char* new_container = new char[capacity * 2];
-		write(container, new_container);
-		delete[] container;
-		container = new_container;
 		capacity *= 2;
+		char* new_payload = new char[capacity];
+		memcpy(new_payload, payload, size);
+		delete[] payload;
+		payload = new_payload;
 	}
 
 public:
@@ -37,7 +29,7 @@ public:
 	// Initialize an instance of List.
 	explicit List(int size)
 	{
-		container = new char[size];
+		payload = new char[size];
 		size = size;
 		capacity = size;
 	}
@@ -50,7 +42,7 @@ public:
 			throw std::runtime_error("Index out of bounds!");
 		}
 
-		container[index] = value;
+		payload[index] = value;
 	}
 
 	// Get value at index.
@@ -61,7 +53,7 @@ public:
 			throw std::runtime_error("Index out of bounds!");
 		}
 
-		return container[index];
+		return payload[index];
 	}
 
 	// Append a value to the end of the List.
@@ -71,7 +63,7 @@ public:
 		{
 			resize();
 		}
-		container[size + 1] = value;
+		payload[size + 1] = value;
 		size++;
 	}
 
