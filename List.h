@@ -8,13 +8,14 @@
 class List
 {
 private:
-	char* payload;
 	int size{};
 	int capacity;
 
 	void resize();
 
 public:
+	char* payload;
+
 	explicit List(int size);
 
 	void set(int index, char value);

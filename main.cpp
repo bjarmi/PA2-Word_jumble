@@ -67,7 +67,7 @@ public:
 			// Todo: Use memcpy().
 			// write(get_guess(), guess);
 		}
-		while (guess != unscrambled_word);
+		while (guess.payload != unscrambled_word);
 	}
 };
 
