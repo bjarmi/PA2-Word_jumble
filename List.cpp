@@ -10,9 +10,9 @@
 // Resize the payload.
 void List::resize()
 {
-	capacity *= 2;
-	char* new_payload = new char[capacity];
-	memcpy(new_payload, payload, size);
+	_capacity *= 2;
+	char* new_payload = new char[_capacity];
+	memcpy(new_payload, payload, _size);
 	delete[] payload;
 	payload = new_payload;
 }
@@ -22,13 +22,13 @@ List::List(int size)
 {
 	payload = new char[size];
 	size = size;
-	capacity = size;
+	_capacity = size;
 }
 
 // Set value at index.
 void List::set(int index, char value)
 {
-	if (index < 0 || index >= size)
+	if (index < 0 || index >= _size)
 	{
 		throw std::runtime_error("Index out of bounds!");
 	}
@@ -39,7 +39,7 @@ void List::set(int index, char value)
 // Get value at index.
 char List::get(int index)
 {
-	if (index < 0 || index >= size)
+	if (index < 0 || index >= _size)
 	{
 		throw std::runtime_error("Index out of bounds!");
 	}
@@ -50,11 +50,47 @@ char List::get(int index)
 // Append a value to the end of the List.
 void List::append(char value)
 {
-	if (size + 1 > capacity)
+	if (_size + 1 > _capacity)
 	{
 		resize();
 	}
-	payload[size + 1] = value;
-	size++;
+	payload[_size + 1] = value;
+	_size++;
+}
+
+List::~List()
+{
+	delete[] payload;
+}
+
+int List::size() const
+{
+	return _size;
+}
+
+List::List()
+{
+	_size = 8;
+	_capacity = 8;
+	payload = new char[8];
+}
+
+bool List::operator==(List other) const
+{
+	if (_size != other.size())
+	{
+		return false;
+	}
+
+	for (auto i = 0; i < _size; i++)
+	{
+		if (payload[i] != other.get(i))
+		{
+			return false;
+		}
+
+	}
+
+	return true;
 }
 

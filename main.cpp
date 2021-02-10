@@ -1,7 +1,7 @@
 #include <iostream>
-#include <random>
 #include <array>
 #include "List.h"
+#include <cstring>
 
 const int MAX_WORD_SIZE = 45;
 
@@ -10,8 +10,8 @@ struct WordBank
 {
 	static char wordbank[13];
 
-	// Fetch word from a wordbank.
-	List fetch_word();
+	// Todo: Fetch word from a wordbank.
+	static List fetch_word();
 };
 
 
@@ -19,66 +19,69 @@ class Scramble
 {
 private:
 
-	std::array<char, MAX_WORD_SIZE> unscrambled_word{};
-	std::array<char, MAX_WORD_SIZE> scrambled_word{};
+	List unscrambled_word;
+	List scrambled_word;
 
 	// Display game status.
 	void display_status()
 	{
 		printf("Scrambled word:\n\t");
-		for (auto letter : scrambled_word)
+		for (auto i = 0; i < scrambled_word.size(); i++)
 		{
-			std::cout << letter;
+			std::cout << scrambled_word.get(i);
 		}
 	}
 
 	// Get a word guess from user.
-	static std::array<char, MAX_WORD_SIZE> get_guess()
+	static List get_guess()
 	{
-		std::array<char, MAX_WORD_SIZE> guess{};
+		List guess;
 
 		printf("Hit me with your best shot!\n");
-		std::cin.read(guess.data(), MAX_WORD_SIZE);
+		std::cin.read(guess.payload, MAX_WORD_SIZE);
 
 		return guess;
 	}
 
-	// Scramble a word's letters.
-	std::array<char, MAX_WORD_SIZE>
-	scramble_word(std::array<char, MAX_WORD_SIZE> word);
+	// Todo: Scramble a word's letters.
+	List scramble_word(List word)
+	{
+		return List(word.size());
+	};
 
 
 public:
 
-	explicit Scramble(std::array<char, MAX_WORD_SIZE> word)
+	explicit Scramble(List& word)
 	{
-		unscrambled_word = word;
+		for (auto i = 0; i < word.size(); i++)
+		{
+			unscrambled_word.append(word.get(i));
+		}
+
 		scrambled_word = scramble_word(word);
 	}
 
 
 	void start()
 	{
-		List guess(8);
+		List* guess = new List();
 
 		do
 		{
 			display_status();
-			// Todo: Use memcpy().
-			// write(get_guess(), guess);
+			std::memcpy(guess->payload, get_guess().payload, guess->size());
 		}
-		while (guess.payload != unscrambled_word);
+		while (guess != &unscrambled_word);
 	}
 };
 
 
 int main()
 {
-	const std::string WB = "wordbank.txt";  // Wordbank to use.
 
-	std::array<char, 13> wordbank =
-			reinterpret_cast<const std::array<char, 13>&> (WB);
-	std::array<char, MAX_WORD_SIZE> word = WordBank::fetch_word();
+	const std::string WB = "wordbank.txt";  // Wordbank to use.
+	List word = WordBank::fetch_word();
 
 	Scramble scramble(word);
 	scramble.start();

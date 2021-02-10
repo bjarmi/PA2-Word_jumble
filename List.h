@@ -8,8 +8,8 @@
 class List
 {
 private:
-	int size{};
-	int capacity;
+	int _size;
+	int _capacity;
 
 	void resize();
 
@@ -18,11 +18,19 @@ public:
 
 	explicit List(int size);
 
+	List();
+
+	~List();
+
 	void set(int index, char value);
 
 	char get(int index);
 
 	void append(char value);
+
+	int size() const;
+
+	bool operator == (List other) const;
 };
 
 #endif //PA2_LIST_H
