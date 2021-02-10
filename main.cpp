@@ -33,6 +33,7 @@ struct WordBank
 					std::istreambuf_iterator<char>(), '\n'
 			);
 		}
+
 		return -1;
 	}
 
@@ -122,20 +123,15 @@ public:
 int main()
 {
 	std::array<char, 13> wordbank =
-			(const std::array<char, 13>&) "wordbank.txt";
+			reinterpret_cast<const std::array<char, 13>&> ("wordbank.txt");
 	int word_count = WordBank::count_words();
-
-	if (not word_count)
-	{
-
-		return -1;
-	}
 
 	WordBank::word_count = word_count;
 	std::array<char, MAX_WORD_SIZE> word = WordBank::fetch_word();
 
 	Scramble scramble(word);
 	scramble.start();
+
 	return 0;
 }
 
