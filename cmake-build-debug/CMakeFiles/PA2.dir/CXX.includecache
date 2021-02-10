@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/bjarmianes/Desktop/CPP/PAs/PA2-Word_jumble/main.cpp
+iostream
+-
+fstream
+-
+algorithm
+-
+random
+-
+array
+-
+
