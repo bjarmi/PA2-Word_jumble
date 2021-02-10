@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <random>
 #include <array>
+#include <cstring>
 
 const int MAX_WORD_SIZE = 45;
 
@@ -78,10 +79,17 @@ private:
 		}
 	}
 
-	std::array<char, MAX_WORD_SIZE> get_guess()
+	static std::array<char, MAX_WORD_SIZE> get_guess()
 	{
-		std::cin.gcount()
-		return nullptr;
+		std::string temp;
+		do
+		{
+			printf("Hit me with your best shot!\n");
+			std::cin >> temp;
+		}
+		while (temp.size() > MAX_WORD_SIZE);
+
+		return (const std::array<char, MAX_WORD_SIZE>&) temp;
 	}
 
 	std::array<char, MAX_WORD_SIZE>
