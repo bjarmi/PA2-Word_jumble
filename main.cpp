@@ -89,8 +89,10 @@ public:
 
 int main()
 {
+	const std::string WB = "wordbank.txt";  // Wordbank to use.
+
 	std::array<char, 13> wordbank =
-			reinterpret_cast<const std::array<char, 13>&> ("wordbank.txt");
+			reinterpret_cast<const std::array<char, 13>&> (WB);
 	std::array<char, MAX_WORD_SIZE> word = WordBank::fetch_word();
 
 	Scramble scramble(word);
