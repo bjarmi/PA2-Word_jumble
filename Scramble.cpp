@@ -19,7 +19,7 @@ List Scramble::get_guess()
 
 	printf("Hit me with your best shot!\n");
 	printf("Guess: ");
-	std::cin.read(new_guess.payload, max_word_size);
+	std::cin >> new_guess.payload;
 	printf("\n");
 
 	return new_guess;
