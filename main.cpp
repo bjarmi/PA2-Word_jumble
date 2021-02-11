@@ -45,9 +45,11 @@ struct WordBank
 
                 return word_list;
             }
-            count++;
+            ++count;
         }
         file.close();
+        List empty;
+        return empty;
 	}
 };
 
