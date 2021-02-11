@@ -12,7 +12,7 @@ private:
 public:
 	char* payload;
 
-	List(const List &other);
+	List(const List& other);
 
 	List();
 
@@ -27,6 +27,8 @@ public:
 	int size() const;
 
 	bool operator==(const List& other) const;
+
+	bool operator!=(const List& other) const;
 };
 
 #endif //PA2_LIST_H

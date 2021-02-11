@@ -77,3 +77,8 @@ bool List::operator==(const List& other) const
 
 	return true;
 }
+
+bool List::operator!=(const List& other) const
+{
+	return not operator==(other);
+}

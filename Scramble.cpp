@@ -53,8 +53,7 @@ void Scramble::start()
 	{
 		display_status();
 
-		if (guess->size())
-			delete guess;
+		// Todo.
 
 		get_guess();
 	}
