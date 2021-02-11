@@ -3,4 +3,4 @@ project(PA2)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(PA2 main.cpp List.cpp List.h)
+add_executable(PA2 main.cpp List.cpp List.h Scramble.cpp Scramble.h)

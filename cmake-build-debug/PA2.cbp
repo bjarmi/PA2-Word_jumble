@@ -86,6 +86,12 @@
 		<Unit filename="C:/Users/Sande/Documents/School/cpp/PA2/List.h">
 			<Option target="PA2"/>
 		</Unit>
+		<Unit filename="C:/Users/Sande/Documents/School/cpp/PA2/Scramble.cpp">
+			<Option target="PA2"/>
+		</Unit>
+		<Unit filename="C:/Users/Sande/Documents/School/cpp/PA2/Scramble.h">
+			<Option target="PA2"/>
+		</Unit>
 		<Unit filename="C:/Users/Sande/Documents/School/cpp/PA2/main.cpp">
 			<Option target="PA2"/>
 		</Unit>

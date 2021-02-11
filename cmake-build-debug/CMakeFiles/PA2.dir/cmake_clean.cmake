@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/PA2.dir/List.cpp.obj"
+  "CMakeFiles/PA2.dir/Scramble.cpp.obj"
   "CMakeFiles/PA2.dir/main.cpp.obj"
   "PA2.exe"
   "PA2.exe.manifest"

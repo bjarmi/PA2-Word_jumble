@@ -169,6 +169,33 @@ List.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\PA2.dir\build.make CMakeFiles/PA2.dir/List.cpp.s
 .PHONY : List.cpp.s
 
+Scramble.obj: Scramble.cpp.obj
+
+.PHONY : Scramble.obj
+
+# target to build an object file
+Scramble.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PA2.dir\build.make CMakeFiles/PA2.dir/Scramble.cpp.obj
+.PHONY : Scramble.cpp.obj
+
+Scramble.i: Scramble.cpp.i
+
+.PHONY : Scramble.i
+
+# target to preprocess a source file
+Scramble.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PA2.dir\build.make CMakeFiles/PA2.dir/Scramble.cpp.i
+.PHONY : Scramble.cpp.i
+
+Scramble.s: Scramble.cpp.s
+
+.PHONY : Scramble.s
+
+# target to generate assembly for a file
+Scramble.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PA2.dir\build.make CMakeFiles/PA2.dir/Scramble.cpp.s
+.PHONY : Scramble.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -208,6 +235,9 @@ help:
 	@echo ... List.obj
 	@echo ... List.i
 	@echo ... List.s
+	@echo ... Scramble.obj
+	@echo ... Scramble.i
+	@echo ... Scramble.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
