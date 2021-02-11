@@ -7,10 +7,10 @@
 // Display the game's status.
 void Scramble::display_status()
 {
-	printf("Scrambled word:\n\t");
+	std::cout << "Scrambled word: ";
 	for (auto i = 0; i < scrambled_word->size(); ++i)
 		std::cout << scrambled_word->get(i);
-	printf("\n");
+	std::cout << std::endl;
 }
 
 // Prompt the user for a guess.
@@ -18,10 +18,10 @@ void Scramble::get_guess()
 {
 	guess = new List();
 
-	printf("Hit me with your best shot!\n");
-	printf("Guess: ");
+	std::cout << "Hit me with your best shot!" << std::endl;
+	std::cout << "Guess: ";
 	std::cin >> guess->payload;
-	printf("\n");
+	std::cout << std::endl;
 }
 
 Scramble::Scramble(List& word)

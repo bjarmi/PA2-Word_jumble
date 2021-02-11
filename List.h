@@ -12,6 +12,8 @@ private:
 public:
 	char* payload;
 
+	List(const List &other);
+
 	List();
 
 	~List();

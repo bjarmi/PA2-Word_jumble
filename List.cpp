@@ -7,7 +7,7 @@
 void List::reserve()
 {
 	_capacity *= 2;
-	char* new_payload = new char[_capacity];
+	char* new_payload = new char[_capacity]{0};
 	memcpy(new_payload, payload, _size);
 	delete[] payload;
 	payload = new_payload;
@@ -51,11 +51,19 @@ int List::size() const
 	return _size;
 }
 
+List::List(const List& other)
+{
+	_size = other._size;
+	_capacity = other._capacity;
+	payload = new char[_capacity]{0};
+	memcpy(payload, other.payload, _size);
+}
+
 List::List()
 {
 	_size = 0;
 	_capacity = 8;
-	payload = new char[8];
+	payload = new char[8]{0};
 }
 
 bool List::operator==(const List& other) const
