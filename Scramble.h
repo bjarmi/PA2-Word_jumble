@@ -12,15 +12,15 @@ class Scramble
 {
 private:
 	static const int max_word_size = 45;
-	List unscrambled_word;
-	List scrambled_word;
+	List* unscrambled_word;
+	List* scrambled_word;
 	List* guess;
 
 	void display_status();
 
 	static List get_guess();
 
-	List scramble_word(List word);
+	void scramble_word();
 
 public:
 	explicit Scramble(List& word);
