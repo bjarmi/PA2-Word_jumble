@@ -7,13 +7,13 @@
 class Scramble
 {
 private:
-	List* unscrambled_word;
-	List* scrambled_word;
-	List* guess;
+	List unscrambled_word;
+	List scrambled_word;
+	List guess;
 
 	void display_status();
 
-	void get_guess();
+	void get_guess() const;
 
 	void scramble_word();
 

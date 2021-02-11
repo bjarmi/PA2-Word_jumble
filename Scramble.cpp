@@ -8,42 +8,30 @@
 void Scramble::display_status()
 {
 	std::cout << "Scrambled word: ";
-	for (auto i = 0; i < scrambled_word->size(); ++i)
-		std::cout << scrambled_word->get(i);
+	for (auto i = 0; i < scrambled_word.size(); ++i)
+		std::cout << scrambled_word.get(i);
 	std::cout << std::endl;
 }
 
 // Prompt the user for a guess.
-void Scramble::get_guess()
+void Scramble::get_guess() const
 {
-	guess = new List();
-
 	std::cout << "Hit me with your best shot!" << std::endl;
 	std::cout << "Guess: ";
-	std::cin >> guess->payload;
+	std::cin >> guess.payload;
 	std::cout << std::endl;
 }
 
 Scramble::Scramble(List& word)
 {
 
-	unscrambled_word = new List();
-	scrambled_word = new List();
-
 	for (auto i = 0; i < word.size(); ++i)
 	{
-		unscrambled_word->append(word.get(i));
-		scrambled_word->append(word.get(i));
+		unscrambled_word.append(word.get(i));
+		scrambled_word.append(word.get(i));
 	}
 
 	scramble_word();
-}
-
-Scramble::~Scramble()
-{
-	delete unscrambled_word;
-	delete scrambled_word;
-	delete guess;
 }
 
 // Start the guessing sequence.
@@ -67,8 +55,8 @@ void Scramble::scramble_word()
 			.count();
 
 	shuffle(
-			&scrambled_word->payload[0],
-			&scrambled_word->payload[scrambled_word->size()],
+			scrambled_word.payload[0],
+			scrambled_word.payload[scrambled_word.size()],
 			std::default_random_engine(seed)
 	);
 }
