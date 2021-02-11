@@ -11,45 +11,45 @@ struct WordBank
 {
 	static char wordbank[13];
 
-    static int count_words()
-    {
-        std::ifstream file;
-        file.open(wordbank, std::ios::in);
-        if (file.is_open())
-        {
-            return std::count(
-                    std::istreambuf_iterator<char>(file),
-                    std::istreambuf_iterator<char>(), '\n'
-            );
-        }
+	static int count_words()
+	{
+		std::ifstream file;
+		file.open(wordbank, std::ios::in);
+		if (file.is_open())
+		{
+			return std::count(
+					std::istreambuf_iterator<char>(file),
+					std::istreambuf_iterator<char>(), '\n'
+			);
+		}
 
-        return  -1;
-    }
+		throw std::runtime_error("Could not open file!");
+	}
 
 	static List fetch_word()
 	{
-        int line_number = std::rand() % count_words() + 1;
+		int line_number = std::rand() % count_words() + 1;
 
-        std::ifstream file(wordbank, std::ios::in);
+		std::ifstream file(wordbank, std::ios::in);
 
-        std::string line;
-        int count = 0;
-        while (std::getline(file, line))
-        {
-            if (count == line_number)
-            {
-                List word_list;
+		std::string line;
+		int count = 0;
+		while (std::getline(file, line))
+		{
+			if (count == line_number)
+			{
+				List word_list;
 
-                for(char i : line)
-                    word_list.append(i);
+				for (char i : line)
+					word_list.append(i);
 
-                return word_list;
-            }
-            ++count;
-        }
-        file.close();
-        List empty;
-        return empty;
+				return word_list;
+			}
+			++count;
+		}
+		file.close();
+		List empty;
+		return empty;
 	}
 };
 
