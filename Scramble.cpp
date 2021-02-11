@@ -4,6 +4,7 @@
 #include <chrono>
 #include <random>
 
+// Display the game's status.
 void Scramble::display_status()
 {
 	printf("Scrambled word:\n\t");
@@ -12,6 +13,7 @@ void Scramble::display_status()
 	printf("\n");
 }
 
+// Prompt the user for a guess.
 void Scramble::get_guess()
 {
 	guess = new List();
@@ -44,6 +46,7 @@ Scramble::~Scramble()
 	delete guess;
 }
 
+// Start the guessing sequence.
 void Scramble::start()
 {
 	while (guess != unscrambled_word)
@@ -57,6 +60,7 @@ void Scramble::start()
 	}
 }
 
+// Scramble the word to be guessed.
 void Scramble::scramble_word()
 {
 	unsigned seed = std::chrono::system_clock::now()
