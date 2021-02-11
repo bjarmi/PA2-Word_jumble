@@ -9,9 +9,8 @@
 
 struct WordBank
 {
-	static char wordbank[13];
+	static std::string wordbank;
 
-	static
 	static int count_words()
 	{
 		std::ifstream file;
@@ -56,8 +55,7 @@ struct WordBank
 
 int main()
 {
-
-	const std::string WB = "wordbank.txt";  // Wordbank to use.
+    WordBank::wordbank = "wordbank.txt";
 	List word = WordBank::fetch_word();
 
 	Scramble scramble(word);
