@@ -10,6 +10,7 @@ void Scramble::display_status()
 	printf("Scrambled word:\n\t");
 	for (auto i = 0; i < scrambled_word->size(); ++i)
 		std::cout << scrambled_word->get(i);
+	printf("\n");
 }
 
 List Scramble::get_guess()
