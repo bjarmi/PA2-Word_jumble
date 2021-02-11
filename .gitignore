@@ -30,6 +30,7 @@
 *.exe
 *.out
 *.app
+PA2
 
 **/.idea
 **/cmake-build-debug
