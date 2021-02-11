@@ -49,7 +49,10 @@ void Scramble::start()
 	while (guess != unscrambled_word)
 	{
 		display_status();
-		delete[] guess;
+
+		if (guess->size())
+			delete[] guess;
+
 		get_guess();
 	}
 }
