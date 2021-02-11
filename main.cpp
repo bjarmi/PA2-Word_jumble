@@ -4,6 +4,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <algorithm>
+#include <ctime>
 
 
 struct WordBank
@@ -27,7 +28,7 @@ struct WordBank
 
 	List fetch_word() const
 	{
-        srand(time(NULL));
+		srand(time(nullptr));
 		int line_number = std::rand() % count_words() + 1;
 		std::ifstream file(wordbank, std::ios::in);
 
