@@ -7,7 +7,6 @@
 class Scramble
 {
 private:
-	static const int max_word_size = 45;
 	List* unscrambled_word;
 	List* scrambled_word;
 	List* guess;
