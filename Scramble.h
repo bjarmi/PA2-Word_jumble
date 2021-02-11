@@ -1,7 +1,3 @@
-//
-// Created by Sande on 11/02/2021.
-//
-
 #include "List.h"
 
 #ifndef PA2_SCRAMBLE_H

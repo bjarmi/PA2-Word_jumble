@@ -1,7 +1,3 @@
-//
-// Created by Sande on 11/02/2021.
-//
-
 #include <iostream>
 #include "Scramble.h"
 #include <cstring>
@@ -73,5 +69,4 @@ void Scramble::scramble_word()
 			scrambled_word->payload[scrambled_word->size()],
 			std::default_random_engine(seed)
 	);
-
 }
