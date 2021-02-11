@@ -10,26 +10,25 @@
 struct WordBank
 {
 	static char wordbank[13];
-    static int word_count;
 
-    static void count_words()
+    static int count_words()
     {
         std::ifstream file;
         file.open(wordbank, std::ios::in);
         if (file.is_open())
         {
-            word_count = std::count(
+            return std::count(
                     std::istreambuf_iterator<char>(file),
                     std::istreambuf_iterator<char>(), '\n'
             );
         }
 
-        word_count = -1;
+        return  -1;
     }
 
 	static List fetch_word()
 	{
-        int line_number = std::rand() % word_count + 1;
+        int line_number = std::rand() % count_words() + 1;
 
         std::ifstream file(wordbank, std::ios::in);
 
