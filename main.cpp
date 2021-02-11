@@ -1,7 +1,6 @@
 #include <iostream>
 #include <array>
 #include "List.h"
-#include <cstring>
 #include "Scramble.h"
 
 
