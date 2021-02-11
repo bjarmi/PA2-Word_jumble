@@ -67,7 +67,7 @@ bool List::operator==(const List& other) const
 	if (_size != other.size())
 		return false;
 
-	for (auto i = 0; i < _size; i++)
+	for (auto i = 0; i < _size; ++i)
 		if (payload[i] != other.get(i))
 			return false;
 
