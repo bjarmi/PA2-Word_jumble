@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Sande/Documents/School/cpp/PA2/List.cpp" "C:/Users/Sande/Documents/School/cpp/PA2/cmake-build-debug/CMakeFiles/PA2.dir/List.cpp.obj"
-  "C:/Users/Sande/Documents/School/cpp/PA2/Scramble.cpp" "C:/Users/Sande/Documents/School/cpp/PA2/cmake-build-debug/CMakeFiles/PA2.dir/Scramble.cpp.obj"
-  "C:/Users/Sande/Documents/School/cpp/PA2/main.cpp" "C:/Users/Sande/Documents/School/cpp/PA2/cmake-build-debug/CMakeFiles/PA2.dir/main.cpp.obj"
+  "/Users/bjarmianes/Desktop/CPP/PAs/PA2-Word_jumble/List.cpp" "/Users/bjarmianes/Desktop/CPP/PAs/PA2-Word_jumble/cmake-build-debug/CMakeFiles/PA2.dir/List.cpp.o"
+  "/Users/bjarmianes/Desktop/CPP/PAs/PA2-Word_jumble/Scramble.cpp" "/Users/bjarmianes/Desktop/CPP/PAs/PA2-Word_jumble/cmake-build-debug/CMakeFiles/PA2.dir/Scramble.cpp.o"
+  "/Users/bjarmianes/Desktop/CPP/PAs/PA2-Word_jumble/main.cpp" "/Users/bjarmianes/Desktop/CPP/PAs/PA2-Word_jumble/cmake-build-debug/CMakeFiles/PA2.dir/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

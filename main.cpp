@@ -9,7 +9,10 @@ struct WordBank
 	static char wordbank[13];
 
 	// Todo: Fetch word from a wordbank.
-	static List fetch_word();
+	static List fetch_word()
+	{
+
+	}
 };
 
 
