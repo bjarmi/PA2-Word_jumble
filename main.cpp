@@ -4,26 +4,27 @@
 #include "Scramble.h"
 #include <fstream>
 #include <cstdlib>
+#include <algorithm>
 
 
 struct WordBank
 {
 	static char wordbank[13];
-    static int& word_count;
+    static int word_count;
 
-    static int count_words()
+    static void count_words()
     {
         std::ifstream file;
         file.open(wordbank, std::ios::in);
         if (file.is_open())
         {
-            return std::count(
+            word_count = std::count(
                     std::istreambuf_iterator<char>(file),
                     std::istreambuf_iterator<char>(), '\n'
             );
         }
 
-        return -1;
+        word_count = -1;
     }
 
 	static List fetch_word()
