@@ -3,8 +3,6 @@
 #include "List.h"
 #include <cstring>
 
-const int MAX_WORD_SIZE = 45;
-
 
 struct WordBank
 {
@@ -19,6 +17,7 @@ class Scramble
 {
 private:
 
+	static const int max_word_size = 45;
 	List unscrambled_word;
 	List scrambled_word;
 
@@ -36,7 +35,7 @@ private:
 		List guess;
 
 		printf("Hit me with your best shot!\n");
-		std::cin.read(guess.payload, MAX_WORD_SIZE);
+		std::cin.read(guess.payload, max_word_size);
 
 		return guess;
 	}
