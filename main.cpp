@@ -8,9 +8,9 @@
 
 struct WordBank
 {
-	static std::string wordbank;
+	std::string wordbank;
 
-	static int count_words()
+	int count_words()
 	{
 		std::ifstream file;
 		file.open(wordbank, std::ios::in);
@@ -25,7 +25,7 @@ struct WordBank
 		throw std::runtime_error("Could not open file!");
 	}
 
-	static List fetch_word()
+	List fetch_word()
 	{
 		int line_number = std::rand() % count_words() + 1;
 
@@ -56,8 +56,9 @@ struct WordBank
 
 int main()
 {
-	WordBank::wordbank = "wordbank.txt";
-	List word = WordBank::fetch_word();
+    WordBank test;
+    test.wordbank = "wordbank.txt";
+	List word = test.fetch_word();
 
 	Scramble scramble(word);
 	scramble.start();
