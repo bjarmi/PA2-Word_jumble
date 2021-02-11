@@ -48,8 +48,7 @@ struct WordBank
 			++count;
 		}
 		file.close();
-		List empty;
-		return empty;
+        throw std::runtime_error("Could not open file!");
 	}
 };
 
