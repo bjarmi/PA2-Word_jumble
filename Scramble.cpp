@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Scramble.h"
-#include <cstring>
 #include <algorithm>
 #include <chrono>
 #include <random>
@@ -13,16 +12,14 @@ void Scramble::display_status()
 	printf("\n");
 }
 
-List Scramble::get_guess()
+void Scramble::get_guess()
 {
-	List new_guess;
+	guess = new List();
 
 	printf("Hit me with your best shot!\n");
 	printf("Guess: ");
-	std::cin >> new_guess.payload;
+	std::cin >> guess->payload;
 	printf("\n");
-
-	return new_guess;
 }
 
 Scramble::Scramble(List& word)
@@ -38,7 +35,6 @@ Scramble::Scramble(List& word)
 	}
 
 	scramble_word();
-	guess = new List();
 }
 
 Scramble::~Scramble()
@@ -50,12 +46,12 @@ Scramble::~Scramble()
 
 void Scramble::start()
 {
-	do
+	while (guess != unscrambled_word)
 	{
 		display_status();
-		std::memcpy(guess->payload, get_guess().payload, guess->size());
+		delete[] guess;
+		get_guess();
 	}
-	while (guess != unscrambled_word);
 }
 
 void Scramble::scramble_word()

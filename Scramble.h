@@ -14,7 +14,7 @@ private:
 
 	void display_status();
 
-	static List get_guess();
+	void get_guess();
 
 	void scramble_word();
 
