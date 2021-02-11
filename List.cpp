@@ -8,21 +8,13 @@
 
 
 // Resize the payload.
-void List::resize()
+void List::reserve()
 {
 	_capacity *= 2;
 	char* new_payload = new char[_capacity];
 	memcpy(new_payload, payload, _size);
 	delete[] payload;
 	payload = new_payload;
-}
-
-// Initialize an instance of List.
-List::List(int size)
-{
-	payload = new char[size];
-	_size = size;
-	_capacity = size;
 }
 
 // Set value at index.
@@ -52,7 +44,7 @@ void List::append(char value)
 {
 	if (_size + 1 > _capacity)
 	{
-		resize();
+		reserve();
 	}
 	payload[_size + 1] = value;
 	_size++;

@@ -32,30 +32,32 @@ struct WordBank
 
 		std::ifstream file(wordbank, std::ios::in);
 
-        if (file.is_open())
-        {
-            std::string line;
-            int count = 0;
-            while (std::getline(file, line)) {
-                if (count == line_number) {
-                    List word_list;
+		if (file.is_open())
+		{
+			std::string line;
+			int count = 0;
+			while (std::getline(file, line))
+			{
+				if (count == line_number)
+				{
+					List word_list;
 
-                    for (char i : line)
-                        word_list.append(i);
+					for (char i : line)
+						word_list.append(i);
 
-                    return word_list;
-                }
-                ++count;
-            }
-        }
-        throw std::runtime_error("Could not open file!");
+					return word_list;
+				}
+				++count;
+			}
+		}
+		throw std::runtime_error("Could not open file!");
 	}
 };
 
 
 int main()
 {
-    WordBank::wordbank = "wordbank.txt";
+	WordBank::wordbank = "wordbank.txt";
 	List word = WordBank::fetch_word();
 
 	Scramble scramble(word);

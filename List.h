@@ -11,12 +11,10 @@ private:
 	int _size;
 	int _capacity;
 
-	void resize();
+	void reserve();
 
 public:
 	char* payload;
-
-	explicit List(int size);
 
 	List();
 
