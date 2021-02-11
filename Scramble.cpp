@@ -29,11 +29,14 @@ Scramble::Scramble(List& word)
 {
 
 	unscrambled_word = new List();
+	scrambled_word = new List();
 
 	for (auto i = 0; i < word.size(); ++i)
+	{
 		unscrambled_word->append(word.get(i));
+		scrambled_word->append(word.get(i));
+	}
 
-	scrambled_word = new List();
 	scramble_word();
 	guess = new List();
 }
@@ -60,12 +63,6 @@ void Scramble::scramble_word()
 	unsigned seed = std::chrono::system_clock::now()
 			.time_since_epoch()
 			.count();
-
-	std::memcpy(
-			scrambled_word->payload,
-			unscrambled_word->payload,
-			unscrambled_word->size()
-	);
 
 	shuffle(
 			&scrambled_word->payload[0],
