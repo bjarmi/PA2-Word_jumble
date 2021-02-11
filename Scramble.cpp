@@ -65,8 +65,8 @@ void Scramble::scramble_word()
 	);
 
 	shuffle(
-			scrambled_word->payload[0],
-			scrambled_word->payload[scrambled_word->size()],
+			&scrambled_word->payload[0],
+			&scrambled_word->payload[scrambled_word->size() + 1],
 			std::default_random_engine(seed)
 	);
 }
