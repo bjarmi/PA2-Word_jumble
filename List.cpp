@@ -21,9 +21,7 @@ void List::reserve()
 void List::set(int index, char value) const
 {
 	if (index < 0 || index >= _size)
-	{
 		throw std::runtime_error("Index out of bounds!");
-	}
 
 	payload[index] = value;
 }
@@ -32,9 +30,7 @@ void List::set(int index, char value) const
 char List::get(int index) const
 {
 	if (index < 0 || index >= _size)
-	{
 		throw std::runtime_error("Index out of bounds!");
-	}
 
 	return payload[index];
 }
@@ -42,12 +38,11 @@ char List::get(int index) const
 // Append a value to the end of the List.
 void List::append(char value)
 {
-	if (_size + 1 > _capacity)
-	{
+	if (_size + 1 >= _capacity)
 		reserve();
-	}
-	payload[_size + 1] = value;
-	_size++;
+
+	payload[_size] = value;
+	++_size;
 }
 
 List::~List()
@@ -62,7 +57,7 @@ int List::size() const
 
 List::List()
 {
-	_size = 8;
+	_size = 0;
 	_capacity = 8;
 	payload = new char[8];
 }
