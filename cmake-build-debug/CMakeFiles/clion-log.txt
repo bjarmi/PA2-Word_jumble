@@ -1,4 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/bjarmianes/Desktop/CPP/PAs/PA2-Word_jumble
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/bjarmianes/Desktop/CPP/PAs/PA2-Word_jumble/cmake-build-debug
