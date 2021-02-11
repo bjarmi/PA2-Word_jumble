@@ -11,6 +11,7 @@ struct WordBank
 {
 	static char wordbank[13];
 
+	static
 	static int count_words()
 	{
 		std::ifstream file;
@@ -32,22 +33,22 @@ struct WordBank
 
 		std::ifstream file(wordbank, std::ios::in);
 
-		std::string line;
-		int count = 0;
-		while (std::getline(file, line))
-		{
-			if (count == line_number)
-			{
-				List word_list;
+        if (file.is_open())
+        {
+            std::string line;
+            int count = 0;
+            while (std::getline(file, line)) {
+                if (count == line_number) {
+                    List word_list;
 
-				for (char i : line)
-					word_list.append(i);
+                    for (char i : line)
+                        word_list.append(i);
 
-				return word_list;
-			}
-			++count;
-		}
-		file.close();
+                    return word_list;
+                }
+                ++count;
+            }
+        }
         throw std::runtime_error("Could not open file!");
 	}
 };
