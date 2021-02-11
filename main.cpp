@@ -12,8 +12,8 @@ struct WordBank
 
 	int count_words()
 	{
-		std::ifstream file;
-		file.open(wordbank, std::ios::in);
+		std::ifstream file(wordbank, std::ios::in);
+
 		if (file.is_open())
 		{
 			return std::count(
@@ -28,7 +28,6 @@ struct WordBank
 	List fetch_word()
 	{
 		int line_number = std::rand() % count_words() + 1;
-
 		std::ifstream file(wordbank, std::ios::in);
 
 		if (file.is_open())
