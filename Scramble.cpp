@@ -9,7 +9,7 @@ void Scramble::display_status()
 {
 	printf("Scrambled word:\n\t");
 	for (auto i = 0; i < scrambled_word->size(); ++i)
-		std::cout << scrambled_word->get(i);
+		std::cout << (scrambled_word->get(i));
 	printf("\n");
 }
 
@@ -66,7 +66,7 @@ void Scramble::scramble_word()
 
 	shuffle(
 			&scrambled_word->payload[0],
-			&scrambled_word->payload[scrambled_word->size() + 1],
+			&scrambled_word->payload[scrambled_word->size()],
 			std::default_random_engine(seed)
 	);
 }
