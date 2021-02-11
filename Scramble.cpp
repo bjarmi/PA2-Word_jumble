@@ -39,9 +39,9 @@ Scramble::Scramble(List& word)
 
 Scramble::~Scramble()
 {
-	delete[] unscrambled_word;
-	delete[] scrambled_word;
-	delete[] guess;
+	delete unscrambled_word;
+	delete scrambled_word;
+	delete guess;
 }
 
 void Scramble::start()
@@ -51,7 +51,7 @@ void Scramble::start()
 		display_status();
 
 		if (guess->size())
-			delete[] guess;
+			delete guess;
 
 		get_guess();
 	}
