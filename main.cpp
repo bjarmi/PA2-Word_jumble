@@ -1,5 +1,4 @@
 #include <iostream>
-#include <array>
 #include "List.h"
 #include "Scramble.h"
 #include <fstream>
