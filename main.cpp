@@ -59,10 +59,11 @@ struct WordBank
 int main()
 {
 	WordBank wb;
-	std::string choice;
+	List choice;
 
-	while (choice != "n")
+	while (choice.payload[0] != 'n')
 	{
+		choice.clear();
 		wb.wordbank = "wordbank.txt";
 		List word = wb.fetch_word();
 
