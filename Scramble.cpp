@@ -84,14 +84,10 @@ void Scramble::hint()
 	srand(time(nullptr));
 	int index = std::rand() % hint_status.size();
 
-	do
+	while (true)
 	{
-
-		if (index == hint_status.size())
-		{
+		if (index >= hint_status.size())
 			index = 0;
-			continue;
-		}
 
 		if (hint_status.get(index) == '-')
 		{
@@ -101,7 +97,6 @@ void Scramble::hint()
 
 		++index;
 	}
-	while (hint_status.get(index) != '-');
 
 
 	--hints;
