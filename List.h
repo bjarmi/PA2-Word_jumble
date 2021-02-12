@@ -16,8 +16,6 @@ public:
 
 	List(const List& other);
 
-	explicit List(int size);
-
 	List();
 
 	~List();

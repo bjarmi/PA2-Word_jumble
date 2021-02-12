@@ -27,14 +27,13 @@ void Scramble::get_guess()
 
 Scramble::Scramble(List& word, int points)
 {
-	hint_status = List(scrambled_word.size());
 	hints = points;
 
 	for (auto i = 0; i < word.size(); ++i)
 	{
 		unscrambled_word.append(word.get(i));
 		scrambled_word.append(word.get(i));
-		hint_status.set(i, '-');
+		hint_status.append('-');
 	}
 
 	scramble_word();
@@ -69,4 +68,5 @@ void Scramble::scramble_word()
 void Scramble::hint()
 {
 
+	--hints;
 }

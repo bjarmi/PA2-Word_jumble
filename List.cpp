@@ -61,13 +61,6 @@ List::List(const List& other)
 	memcpy(payload, other.payload, _size);
 }
 
-List::List(int size)
-{
-	_size = 0;
-	_capacity = size;
-	payload = new char[_capacity]{0};
-}
-
 List::List()
 {
 	_size = 0;
