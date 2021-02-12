@@ -53,8 +53,8 @@ void Scramble::scramble_word()
 			.count();
 
 	shuffle(
-			&scrambled_word.payload[0],
-			&scrambled_word.payload[scrambled_word.size()],
+			scrambled_word.get(0),
+			scrambled_word.get(scrambled_word.size()),
 			std::default_random_engine(seed)
 	);
 }

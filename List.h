@@ -8,11 +8,11 @@ class List
 private:
 	int _size;
 	int _capacity;
+	char* payload;
 
 	void reserve();
 
 public:
-	char* payload;
 
 	List(const List& other);
 

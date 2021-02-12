@@ -61,7 +61,7 @@ int main()
 	WordBank wb;
 	List choice;
 
-	while (choice.payload[0] != 'n')
+	while (choice.get(0) != 'n')
 	{
 		choice.clear();
 		wb.wordbank = "wordbank.txt";
