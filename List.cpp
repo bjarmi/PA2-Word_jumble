@@ -25,8 +25,10 @@ void List::set(int index, char value) const
 // Get value at index.
 char List::get(int index) const
 {
+
 	if (index < 0 || index >= _size)
-		throw std::runtime_error("Index out of bounds!");
+		if (index)
+			throw std::runtime_error("Index out of bounds!");
 
 	return payload[index];
 }
@@ -104,5 +106,5 @@ char* List::begin()
 
 char* List::end()
 {
-	return &payload[_size - 1];
+	return &payload[_size];
 }
