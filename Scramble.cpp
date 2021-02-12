@@ -86,20 +86,23 @@ void Scramble::hint()
 
 	do
 	{
+
 		if (index == hint_status.size())
+		{
 			index = 0;
+			continue;
+		}
 
 		if (hint_status.get(index) == '-')
 		{
 			hint_status.set(index, unscrambled_word.get(index));
+			break;
 		}
-		else
-		{
-			++index;
-			continue;
-		}
+
+		++index;
 	}
 	while (hint_status.get(index) != '-');
+
 
 	--hints;
 }
