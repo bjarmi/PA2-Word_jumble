@@ -66,7 +66,7 @@ struct GameManager
 		WordBank wb;
 		List choice;
 
-		while (choice.get(0) != 'n')
+		while (choice.get(0) == 'y')
 		{
 			choice.clear();
 			wb.wordbank = "wordbank.txt";
@@ -75,8 +75,8 @@ struct GameManager
 			Scramble scramble(word, points);
 			points = scramble.start();
 
-			std::cout << "Correct!" << std::endl;
 			++words_guessed;
+
 			std::cout << "Keep playing? (y/n)" << std::endl;
 			std::cin >> choice;
 		}

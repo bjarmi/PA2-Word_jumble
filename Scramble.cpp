@@ -56,6 +56,10 @@ int Scramble::start()
 		get_guess();
 	}
 
+	hints
+	? std::cout << "You guessed correctly!" << std::endl
+	: std::cout << "You lost!" << std::endl;
+
 	return hints;
 }
 
@@ -81,7 +85,7 @@ void Scramble::hint()
 
 	do
 	{
-		if (index == hint_status.size())
+		if (index == hint_status.size() - 1)
 		{
 			index = 0;
 		}
