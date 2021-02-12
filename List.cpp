@@ -3,7 +3,7 @@
 #include <cstring>
 
 
-// Resize the payload.
+// Reserve bigger memory for the payload.
 void List::reserve()
 {
 	_capacity *= 2;

@@ -41,9 +41,6 @@ void Scramble::start()
 	while (guess != unscrambled_word)
 	{
 		display_status();
-
-		// Todo.
-
 		get_guess();
 	}
 }

@@ -69,6 +69,7 @@ int main()
 		Scramble scramble(word);
 		scramble.start();
 
+		std::cout << "Correct!" << std::endl;
 		std::cout << "Keep playing? (y/n)" << std::endl;
 		std::cin >> choice;
 	}
