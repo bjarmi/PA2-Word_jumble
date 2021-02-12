@@ -59,11 +59,19 @@ struct WordBank
 int main()
 {
 	WordBank wb;
-	wb.wordbank = "wordbank.txt";
-	List word = wb.fetch_word();
+	std::string choice;
 
-	Scramble scramble(word);
-	scramble.start();
+	while (choice != "n")
+	{
+		wb.wordbank = "wordbank.txt";
+		List word = wb.fetch_word();
+
+		Scramble scramble(word);
+		scramble.start();
+
+		std::cout << "Keep playing? (y/n)" << std::endl;
+		std::cin >> choice;
+	}
 
 	return 0;
 }
