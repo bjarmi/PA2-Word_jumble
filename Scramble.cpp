@@ -10,18 +10,25 @@ void Scramble::display_status()
 	std::cout << "Scrambled word: ";
 	for (auto i = 0; i < scrambled_word.size(); ++i)
 		std::cout << scrambled_word.get(i);
+
+	std::cout << std::endl << "Hint: ";
+	for (auto i = 0; i < hint_status.size(); ++i)
+		std::cout << hint_status.get(i);
+
 	std::cout << std::endl;
 }
 
 // Prompt the user for a guess.
 void Scramble::get_guess()
 {
-	std::cout << "Hit me with your best shot!" << std::endl;
+	std::cout << "Guess the word!" << std::endl;
+
 	guess.clear();
 	std::cout << "Guess: ";
 	std::cin >> guess;
 	std::cout << std::endl;
-	if (guess.begin())
+
+	if (reinterpret_cast<char>(guess.begin()) == '0')
 		hint();
 }
 
@@ -67,6 +74,24 @@ void Scramble::scramble_word()
 
 void Scramble::hint()
 {
+	srand(time(nullptr));
+	int index = std::rand() % hint_status.size();
+
+	while (hint_status.get(index) != '-')
+	{
+		if (index == hint_status.size())
+		{
+			index = 0;
+		}
+
+		if (hint_status.get(index) == '-')
+		{
+			hint_status.set(index, unscrambled_word.get(index));
+			break;
+		}
+
+		++index;
+	}
 
 	--hints;
 }

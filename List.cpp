@@ -99,7 +99,7 @@ void List::clear()
 	_size = 0;
 }
 
-char* List::begin()
+char List::begin()
 {
 	return &payload[0];
 }
