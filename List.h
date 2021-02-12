@@ -1,3 +1,5 @@
+#include <iostream>
+
 #ifndef PA2_LIST_H
 #define PA2_LIST_H
 
@@ -29,6 +31,10 @@ public:
 	bool operator==(const List& other) const;
 
 	bool operator!=(const List& other) const;
+
+	void clear();
 };
+
+std::istream& operator>>(std::istream& input, List& list);
 
 #endif //PA2_LIST_H

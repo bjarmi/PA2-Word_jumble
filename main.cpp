@@ -58,9 +58,9 @@ struct WordBank
 
 int main()
 {
-	WordBank test;
-	test.wordbank = "wordbank.txt";
-	List word = test.fetch_word();
+	WordBank wb;
+	wb.wordbank = "wordbank.txt";
+	List word = wb.fetch_word();
 
 	Scramble scramble(word);
 	scramble.start();

@@ -13,14 +13,12 @@ private:
 
 	void display_status();
 
-	void get_guess() const;
+	void get_guess();
 
 	void scramble_word();
 
 public:
 	explicit Scramble(List& word);
-
-	~Scramble();
 
 	void start();
 

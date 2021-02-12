@@ -14,11 +14,12 @@ void Scramble::display_status()
 }
 
 // Prompt the user for a guess.
-void Scramble::get_guess() const
+void Scramble::get_guess()
 {
 	std::cout << "Hit me with your best shot!" << std::endl;
+	guess.clear();
 	std::cout << "Guess: ";
-	std::cin >> guess.payload;
+	std::cin >> guess;
 	std::cout << std::endl;
 }
 

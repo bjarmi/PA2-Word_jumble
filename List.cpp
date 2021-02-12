@@ -82,3 +82,17 @@ bool List::operator!=(const List& other) const
 {
 	return not operator==(other);
 }
+
+std::istream& operator>>(std::istream& input, List& list)
+{
+	while (input.peek() != '\n')
+		list.append(input.get());
+
+	input.get();
+	return input;
+}
+
+void List::clear()
+{
+	_size = 0;
+}
