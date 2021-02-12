@@ -8,6 +8,7 @@ class Scramble
 {
 private:
 	int hints;
+	int marked;
 	List unscrambled_word;
 	List scrambled_word;
 	List hint_status;

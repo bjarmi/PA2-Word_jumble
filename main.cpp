@@ -66,7 +66,7 @@ struct GameManager
 		WordBank wb;
 		List choice;
 
-		while (choice.get(0) != 'y')
+		while (choice.get(0) != 'n')
 		{
 			choice.clear();
 			wb.wordbank = "wordbank.txt";

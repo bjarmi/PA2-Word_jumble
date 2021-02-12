@@ -37,6 +37,7 @@ void Scramble::get_guess()
 Scramble::Scramble(List& word, int points)
 {
 	hints = points;
+	marked = 0;
 
 	for (auto i = 0; i < word.size(); ++i)
 	{
@@ -78,7 +79,6 @@ void Scramble::scramble_word()
 	);
 }
 
-// TODO: Can be broken if word shorter than 10 characters.
 void Scramble::hint()
 {
 	srand(time(nullptr));
@@ -86,12 +86,16 @@ void Scramble::hint()
 
 	while (true)
 	{
+		if (marked == hint_status.size())
+			break;
+
 		if (index >= hint_status.size())
 			index = 0;
 
 		if (hint_status.get(index) == '-')
 		{
 			hint_status.set(index, unscrambled_word.get(index));
+			++marked;
 			break;
 		}
 
