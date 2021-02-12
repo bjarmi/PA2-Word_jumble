@@ -34,7 +34,7 @@ public:
 
 	void clear();
 
-	char begin();
+	char* begin();
 
 	char* end();
 };

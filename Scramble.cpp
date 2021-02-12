@@ -22,13 +22,14 @@ void Scramble::display_status()
 void Scramble::get_guess()
 {
 	std::cout << "Guess the word!" << std::endl;
+	std::cout << "Enter 0 to get a hint!" << std::endl;
 
 	guess.clear();
 	std::cout << "Guess: ";
 	std::cin >> guess;
 	std::cout << std::endl;
 
-	if (reinterpret_cast<char>(guess.begin()) == '0')
+	if (guess.get(0) == '0')
 		hint();
 }
 
@@ -72,6 +73,7 @@ void Scramble::scramble_word()
 	);
 }
 
+// TODO: Can be broken if word shorter than 10 characters.
 void Scramble::hint()
 {
 	srand(time(nullptr));
