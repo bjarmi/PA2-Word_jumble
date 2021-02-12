@@ -21,28 +21,35 @@ void Scramble::get_guess()
 	std::cout << "Guess: ";
 	std::cin >> guess;
 	std::cout << std::endl;
+	if (guess.begin())
+		hint();
 }
 
-Scramble::Scramble(List& word)
+Scramble::Scramble(List& word, int points)
 {
+	hint_status = List(scrambled_word.size());
+	hints = points;
 
 	for (auto i = 0; i < word.size(); ++i)
 	{
 		unscrambled_word.append(word.get(i));
 		scrambled_word.append(word.get(i));
+		hint_status.set(i, '-');
 	}
 
 	scramble_word();
 }
 
 // Start the guessing sequence.
-void Scramble::start()
+int Scramble::start()
 {
-	while (guess != unscrambled_word)
+	while (guess != unscrambled_word && hints > 0)
 	{
 		display_status();
 		get_guess();
 	}
+
+	return hints;
 }
 
 // Scramble the word to be guessed.
@@ -57,4 +64,9 @@ void Scramble::scramble_word()
 			scrambled_word.end(),
 			std::default_random_engine(seed)
 	);
+}
+
+void Scramble::hint()
+{
+
 }

@@ -56,24 +56,37 @@ struct WordBank
 };
 
 
+struct GameManager
+{
+	int words_guessed = 0;
+	int points = 10;
+
+	void start()
+	{
+		WordBank wb;
+		List choice;
+
+		while (choice.get(0) != 'n')
+		{
+			choice.clear();
+			wb.wordbank = "wordbank.txt";
+			List word = wb.fetch_word();
+
+			Scramble scramble(word, points);
+			points = scramble.start();
+
+			std::cout << "Correct!" << std::endl;
+			++words_guessed;
+			std::cout << "Keep playing? (y/n)" << std::endl;
+			std::cin >> choice;
+		}
+	}
+};
+
+
 int main()
 {
-	WordBank wb;
-	List choice;
-
-	while (choice.get(0) != 'n')
-	{
-		choice.clear();
-		wb.wordbank = "wordbank.txt";
-		List word = wb.fetch_word();
-
-		Scramble scramble(word);
-		scramble.start();
-
-		std::cout << "Correct!" << std::endl;
-		std::cout << "Keep playing? (y/n)" << std::endl;
-		std::cin >> choice;
-	}
-
+	GameManager master;
+	master.start();
 	return 0;
 }

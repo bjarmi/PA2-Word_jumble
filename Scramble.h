@@ -7,8 +7,10 @@
 class Scramble
 {
 private:
+	int hints;
 	List unscrambled_word;
 	List scrambled_word;
+	List hint_status;
 	List guess;
 
 	void display_status();
@@ -18,9 +20,11 @@ private:
 	void scramble_word();
 
 public:
-	explicit Scramble(List& word);
+	explicit Scramble(List& word, int points);
 
-	void start();
+	int start();
+
+	void hint();
 
 };
 
