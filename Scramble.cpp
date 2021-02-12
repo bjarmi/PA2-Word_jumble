@@ -23,6 +23,7 @@ void Scramble::get_guess()
 {
 	std::cout << "Guess the word!" << std::endl;
 	std::cout << "Enter 0 to get a hint!" << std::endl;
+	std::cout << hints << " hints remaining." << std::endl;
 
 	guess.clear();
 	std::cout << "Guess: ";
@@ -58,7 +59,7 @@ int Scramble::start()
 
 	hints
 	? std::cout << "You guessed correctly!" << std::endl
-	: std::cout << "You lost!" << std::endl;
+	: std::cout << "Game over!" << std::endl;
 
 	return hints;
 }
@@ -85,18 +86,18 @@ void Scramble::hint()
 
 	do
 	{
-		if (index == hint_status.size() - 1)
-		{
+		if (index == hint_status.size())
 			index = 0;
-		}
 
 		if (hint_status.get(index) == '-')
 		{
 			hint_status.set(index, unscrambled_word.get(index));
-			break;
 		}
-
-		++index;
+		else
+		{
+			++index;
+			continue;
+		}
 	}
 	while (hint_status.get(index) != '-');
 

@@ -77,6 +77,8 @@ struct GameManager
 
 			++words_guessed;
 
+			std::cout << "You guessed " << words_guessed << "words."
+			          << std::endl;
 			std::cout << "Keep playing? (y/n)" << std::endl;
 			std::cin >> choice;
 		}
