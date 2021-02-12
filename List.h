@@ -33,6 +33,10 @@ public:
 	bool operator!=(const List& other) const;
 
 	void clear();
+
+	char* begin();
+
+	char* end();
 };
 
 std::istream& operator>>(std::istream& input, List& list);

@@ -96,3 +96,13 @@ void List::clear()
 {
 	_size = 0;
 }
+
+char* List::begin()
+{
+	return &payload[0];
+}
+
+char* List::end()
+{
+	return &payload[_size - 1];
+}
